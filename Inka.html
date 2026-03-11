@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Inka</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:linear-gradient(135deg,#ff9ecb,#ffc0d9);
+    font-family:'Segoe UI',sans-serif;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* kartu ucapan */
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    max-width:340px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    position:relative;
+    z-index:2;
+}
+
+h1{
+    color:#ff4fa3;
+    font-size:26px;
+}
+
+.name{
+    font-size:20px;
+    color:#ff2f8f;
+    font-weight:bold;
+}
+
+p{
+    font-size:16px;
+    color:#444;
+    line-height:1.6;
+}
+
+/* animasi hati */
+.heart{
+    position:fixed;
+    top:-10px;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-10vh);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>Happy Birthday 🎂</h1>
+
+<div class="name">Nurhajijah (Inka)</div>
+
+<p>
+Selamat ulang tahun ya Inka.  
+Semoga di umur yang baru ini kamu makin bahagia,
+makin kuat, dan makin sering senyum.
+</p>
+
+<p>
+Tetap jadi Inka yang seru, yang baik,
+yang bikin hari orang di sekitarnya terasa lebih hangat.
+Jangan lupa juga buat bahagiain diri sendiri.
+</p>
+
+<p>
+Semoga semua hal baik pelan-pelan datang ke hidup kamu.
+Panjang umur, sehat terus, dan semoga
+hari ini jadi hari yang super spesial buat kamu.
+</p>
+
+<p>
+Pokoknya… selamat ulang tahun Inka 🤍
+</p>
+
+</div>
+
+<!-- hati jatuh -->
+<script>
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (Math.random()*3+3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
