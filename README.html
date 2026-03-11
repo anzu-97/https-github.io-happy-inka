@@ -8,26 +8,24 @@
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
-background:linear-gradient(135deg,#ff6a88,#ff99ac);
+font-family:Arial;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
 text-align:center;
 color:white;
 overflow:hidden;
 }
 
 .container{
-margin-top:120px;
+margin-top:80px;
 padding:20px;
 }
 
 h1{
-font-size:55px;
-margin-bottom:10px;
+font-size:50px;
 }
 
 h2{
-margin-top:-5px;
-font-size:28px;
+margin-top:-10px;
 }
 
 .message{
@@ -37,11 +35,21 @@ font-size:18px;
 line-height:1.6;
 }
 
+.cake{
+font-size:120px;
+margin:20px;
+}
+
+.candle{
+font-size:40px;
+display:block;
+}
+
 button{
-margin-top:30px;
-padding:14px 28px;
+margin:10px;
+padding:12px 25px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:white;
 color:#ff4f81;
 font-size:16px;
@@ -52,21 +60,8 @@ button:hover{
 transform:scale(1.05);
 }
 
-.cake{
-font-size:80px;
-margin:20px;
-animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
-}
-
 .heart{
 position:absolute;
-color:white;
 font-size:20px;
 animation:fall linear infinite;
 }
@@ -88,11 +83,14 @@ transform:translateY(110vh);
 
 <h2>Nurhajijah (Inka)</h2>
 
-<div class="cake">🎂</div>
+<div class="cake">
+🎂
+<span id="flame" class="candle">🔥</span>
+</div>
 
 <p class="message">
-Semoga dengan bertambahnya umur, kamu bisa menjadi pribadi yang
-lebih baik lagi. Semoga panjang umur, sehat selalu,
+Semoga dengan bertambahnya umur kamu bisa menjadi pribadi
+yang lebih baik lagi. Semoga panjang umur, sehat selalu,
 dan semua harapan baikmu bisa tercapai.
 </p>
 
@@ -101,6 +99,7 @@ Semoga hari ini penuh kebahagiaan,
 tawa, dan momen indah bersama orang-orang yang kamu sayangi.
 </p>
 
+<button onclick="blowCandle()">Tiup Lilin 🎂</button>
 <button onclick="playMusic()">Putar Musik 🎵</button>
 
 <audio id="music">
@@ -115,11 +114,16 @@ function playMusic(){
 document.getElementById("music").play();
 }
 
+function blowCandle(){
+document.getElementById("flame").style.display="none";
+alert("Yay! Lilinnya sudah ditiup 🎉");
+}
+
 function createHearts(){
-for(let i=0;i<40;i++){
+for(let i=0;i<50;i++){
 let heart=document.createElement("div");
 heart.className="heart";
-heart.innerHTML="❤";
+heart.innerHTML="💖";
 heart.style.left=Math.random()*100+"vw";
 heart.style.animationDuration=(4+Math.random()*4)+"s";
 heart.style.top="-10px";
